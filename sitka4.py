@@ -42,9 +42,9 @@ for row in csvfile:
 
 fig = plt.figure()
 
-plt.plot(dates,highs, c='red', alpha=0.5) # plot creates a line graph
-plt.plot(dates,lows, c='purple', alpha=0.5)
-plt.fill_between(dates,highs,lows, facecolor="grey", alpha=0.1)
+plt.plot(dates,highs, c='red', alpha=0.6) # plot creates a line graph, alpha is the intensity 
+plt.plot(dates,lows, c='purple', alpha=0.6)
+plt.fill_between(dates,highs,lows, facecolor="grey", alpha=0.3)
 plt.title("Daily and low high temperatures - 2018", fontsize=16)
 plt.xlabel("Dates", fontsize=12)
 plt.ylabel("Temperature(F)", fontsize=12)

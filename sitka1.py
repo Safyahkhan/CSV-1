@@ -1,4 +1,11 @@
+# using the datetime module
+# adding dates to the x axis for the month of July
+
+
 import csv
+from datetime import datetime
+import matplotlib.pyplot as plt
+
 
 infile = open("sitka_weather_07-2018_simple.csv", "r")
 csvfile = csv.reader(infile)
@@ -9,17 +16,26 @@ for index, column_header in enumerate(header_row): #it gives you the location(in
     print(index,column_header)
 
 highs = []
+dates = []
+#mydate = datetime.strptime('2018-07-01', '%y=%m=%d')
+
 
 for row in csvfile:
     highs.append(int(row[5]))
-print(highs)
+    thedate = datetime.strptime(row[2], '%Y-%m-%d')
+    dates.append(thedate)
+#print(highs)
 
-import matplotlib.pyplot as plt
 
-plt.plot(highs, c='red') # plot creates a line graph
+
+fig = plt.figure()
+
+plt.plot(dates,highs, c='red') # plot creates a line graph
 plt.title("Daily high temp for Sitka Alaska July 2018", fontsize=16)
-plt.xlabel("Dates", )
-plt.ylabel("Temperature(F)", fontsize=16)
-plt.tick_params(axis= 'both', which='major', labelsize=16)
+plt.xlabel("")
+plt.ylabel("Temperature(F)", fontsize=12)
+plt.tick_params(axis= 'both', which='major', labelsize=12)
+
+fig.autofmt_xdate()
 
 plt.show()
