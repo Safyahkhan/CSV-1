@@ -50,6 +50,7 @@ plt.xlabel("Dates", fontsize=12)
 plt.ylabel("Temperature(F)", fontsize=12)
 plt.tick_params(axis= 'both', which='major', labelsize=12)
 
+# Rotate the x-axis labels
 fig.autofmt_xdate()
 
 plt.show()
